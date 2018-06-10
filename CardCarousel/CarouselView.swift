@@ -12,6 +12,7 @@ class CarouselView: UICollectionView {
     
     let cellIdentifier = "carousel"
     let colors:[UIColor] = [.blue,.yellow,.red,.green,.gray]
+    let titles:[String] = ["1","2","3","4","5"]
     
     var isInfinity = true
     var pageTabItemsWidth: CGFloat = 0.0
@@ -35,6 +36,8 @@ class CarouselView: UICollectionView {
         layout.minimumLineSpacing = -5
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         self.init(frame: frame, collectionViewLayout: layout)
+        
+        self.backgroundColor = UIColor(red: 240 / 255, green: 240 / 255, blue: 240 / 255, alpha: 1)
     }
     
     override func layoutSubviews() {
@@ -70,8 +73,10 @@ extension CarouselView: UICollectionViewDataSource {
     }
     
     func configureCell(cell: UICollectionViewCell, indexPath: IndexPath) {
+        guard let cell = cell as? CarouselCell else { return }
         let fixedIndex = isInfinity ? indexPath.row % pageCount : indexPath.row
-        cell.backgroundColor = colors[fixedIndex]
+        cell.contentView.layer.borderColor = colors[fixedIndex].cgColor
+        cell.titleLabel.text = titles[fixedIndex]
     }
 }
 
