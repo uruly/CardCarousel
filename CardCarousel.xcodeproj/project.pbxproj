@@ -14,6 +14,8 @@
 		66414F2220CD102800208047 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66414F2020CD102800208047 /* LaunchScreen.storyboard */; };
 		66414F2D20CD102900208047 /* CardCarouselTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66414F2C20CD102900208047 /* CardCarouselTests.swift */; };
 		66414F3820CD102900208047 /* CardCarouselUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66414F3720CD102900208047 /* CardCarouselUITests.swift */; };
+		66414F4620CD107100208047 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66414F4520CD107100208047 /* CarouselView.swift */; };
+		66414F4820CD10FA00208047 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66414F4720CD10FA00208047 /* CarouselCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		66414F3320CD102900208047 /* CardCarouselUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardCarouselUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66414F3720CD102900208047 /* CardCarouselUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCarouselUITests.swift; sourceTree = "<group>"; };
 		66414F3920CD102900208047 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66414F4520CD107100208047 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		66414F4720CD10FA00208047 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				66414F1720CD102500208047 /* AppDelegate.swift */,
 				66414F1920CD102500208047 /* ViewController.swift */,
+				66414F4520CD107100208047 /* CarouselView.swift */,
+				66414F4720CD10FA00208047 /* CarouselCell.swift */,
 				66414F1B20CD102500208047 /* Main.storyboard */,
 				66414F1E20CD102800208047 /* Assets.xcassets */,
 				66414F2020CD102800208047 /* LaunchScreen.storyboard */,
@@ -257,7 +263,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				66414F1A20CD102500208047 /* ViewController.swift in Sources */,
+				66414F4620CD107100208047 /* CarouselView.swift in Sources */,
 				66414F1820CD102500208047 /* AppDelegate.swift in Sources */,
+				66414F4820CD10FA00208047 /* CarouselCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q2UN54KG3Y;
 				INFOPLIST_FILE = CardCarousel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,6 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q2UN54KG3Y;
 				INFOPLIST_FILE = CardCarousel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
