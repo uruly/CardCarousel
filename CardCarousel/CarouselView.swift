@@ -29,10 +29,27 @@ class CarouselView: UICollectionView {
     }
     
     convenience init(frame: CGRect){
-        let layout = UICollectionViewFlowLayout()
+        let layout = PerCellPagingFlowLayout()
         layout.itemSize = CGSize(width: 200, height: frame.height / 2)
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = -5
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         self.init(frame: frame, collectionViewLayout: layout)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let cells = self.visibleCells
+        for cell in cells {
+            let cellCenter = self.convert(cell.center, to: nil)
+            let screenCenterX = UIScreen.main.bounds.width / 2
+            
+            //真ん中までの距離
+            let cellCenterDisX:CGFloat = abs(screenCenterX - cellCenter.x)
+            let s = -0.0009 * cellCenterDisX + 1
+            cell.transform = CGAffineTransform(scaleX:s, y:s)
+        }
     }
 }
 
@@ -87,24 +104,11 @@ extension CarouselView: UIScrollViewDelegate {
             let cellCenterDisX:CGFloat = abs(screenCenterX - cellCenter.x)
             print(cellCenterDisX)
             //let s = abs(-0.00005 * pow(cellCenterDisX, 2) + 1.5)
-            let s = -0.0005 * cellCenterDisX + 1
+            let s = -0.0009 * cellCenterDisX + 1
             let maxScale:CGFloat = 1
             let minScale:CGFloat = 0.8
             print("scale\(s)")
             cell.transform = CGAffineTransform(scaleX:s, y:s)
-//            if s < maxScale && s > minScale{
-//                cell.transform = CGAffineTransform(scaleX:s, y:s)
-//            }else if s > maxScale{
-//                cell.transform = CGAffineTransform(scaleX:maxScale, y:maxScale)
-//            }else {
-//                cell.transform = CGAffineTransform(scaleX:minScale, y:minScale)
-//            }
-//            if s >= maxScale {
-//                cell.transform = CGAffineTransform(scaleX:maxScale, y:maxScale)
-//            }else {
-//                cell.transform = CGAffineTransform(scaleX:s, y:s)
-//            }
-            
         }
     }
 }
